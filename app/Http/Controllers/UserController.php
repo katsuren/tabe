@@ -36,4 +36,29 @@ class UserController extends Controller {
 
 		return redirect("/shop");
 	}
+
+	public function login()
+	{
+		// POST されたパラメタを取得
+		$name = isset($_POST["name"]) ? $_POST["name"] : null;
+
+		if ($name == "" || is_null($name)) {
+			return redirect("/");
+		}
+
+		$userList = User::where("name", "like", $name)->get();
+		if (count($userList) > 0) {
+			$user = $userList[0];
+			Session::put("user_id", $user->id);
+			return redirect("/shop");
+		}
+
+		return redirect("/");
+	}
+
+	public function logout()
+	{
+		Session::forget("user_id");
+		return redirect("/");
+	}
 }

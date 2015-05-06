@@ -45,6 +45,15 @@
 				<div>
 					<a href="/user/signup">ユーザー登録</a>
 				</div>
+
+				<div>
+					<form action="/user/login" method="POST">
+						ユーザー登録済みの方はこちら<br>
+						<input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+						<input name="name" style="width: 200px;" maxlength="25" placeholder="ユーザー名" required></input><br>
+						<button>ログイン</button>
+					</form>
+				</div>
 			</div>
 		</div>
 	</body>
