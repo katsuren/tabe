@@ -18,6 +18,8 @@ Route::post('/user/signup', 'UserController@create');
 Route::post('/user/login', 'UserController@login');
 Route::get('/user/logout', 'UserController@logout');
 
+Route::get('/shop', 'ShopController@index');
+
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
