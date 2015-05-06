@@ -19,6 +19,8 @@ Route::post('/user/login', 'UserController@login');
 Route::get('/user/logout', 'UserController@logout');
 
 Route::get('/shop', 'ShopController@index');
+Route::get('/shop/create', 'ShopController@create');
+Route::post('/shop/create', 'ShopController@postCreate');
 
 Route::get('home', 'HomeController@index');
 

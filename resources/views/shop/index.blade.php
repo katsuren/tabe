@@ -1,4 +1,5 @@
 <?php
+	$loggedin = ! is_null($userId) && $userId != "";
 	$shops = $shops->toArray();
 ?>
 <html>
@@ -35,6 +36,12 @@
 				</tr>
 				@endforeach
 			</table>
+		@endif
+
+		@if ($loggedin)
+		<div>
+			<a href="/shop/create">お店情報を登録</a>
+		</div>
 		@endif
 	</div>
 </body>
